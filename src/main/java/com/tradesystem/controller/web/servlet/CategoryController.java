@@ -1,4 +1,4 @@
-package com.tradesystem.controller.web.servlet.controller.web.servlet;
+package com.tradesystem.controller.web.servlet;
 
 import com.tradesystem.model.Category;
 import com.tradesystem.repository.category.CategoryRepository;

@@ -1,7 +1,7 @@
-package com.tradesystem.controller.web.servlet.controller.web.servlet;
+package com.tradesystem.controller.web.servlet.controller.web.command;
 
-import com.tradesystem.controller.web.servlet.command.common.GetWebCommand;
-import com.tradesystem.controller.web.servlet.command.common.ViewName;
+import com.tradesystem.controller.web.command.common.GetWebCommand;
+import com.tradesystem.controller.web.command.common.ViewName;
 import com.tradesystem.service.category.CategoryService;
 
 import javax.servlet.ServletException;

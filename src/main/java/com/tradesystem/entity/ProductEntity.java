@@ -17,7 +17,8 @@ public class ProductEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
-    @ManyToOne(fetch = FetchType.LAZY)
+    private String description;
+    @ManyToOne
     @JoinColumn(name = "category_id")
     private CategoryEntity category;
 

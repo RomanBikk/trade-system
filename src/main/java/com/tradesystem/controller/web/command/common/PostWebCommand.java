@@ -1,4 +1,4 @@
-package com.tradesystem.controller.web.servlet.command.common;
+package com.tradesystem.controller.web.command.common;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;

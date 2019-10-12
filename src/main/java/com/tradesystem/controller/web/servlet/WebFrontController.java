@@ -1,8 +1,7 @@
 package com.tradesystem.controller.web.servlet;
 
-import com.tradesystem.controller.web.servlet.command.common.WebCommand;
-import com.tradesystem.controller.web.servlet.controller.web.servlet.CategoryController;
-import com.tradesystem.controller.web.servlet.controller.web.servlet.ProductController;
+import com.tradesystem.controller.web.TradeSystemUrls;
+import com.tradesystem.controller.web.command.common.WebCommand;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -12,8 +11,8 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.Map;
 
-import static com.tradesystem.controller.web.servlet.controller.web.servlet.WebCommandFactory.getGetCommands;
-import static com.tradesystem.controller.web.servlet.controller.web.servlet.WebCommandFactory.getPostCommands;
+import static com.tradesystem.controller.web.servlet.controller.web.command.WebCommandFactory.getGetCommands;
+import static com.tradesystem.controller.web.servlet.controller.web.command.WebCommandFactory.getPostCommands;
 
 @WebServlet(urlPatterns = "/"+ TradeSystemUrls.BASE + "/*")
 public class WebFrontController extends HttpServlet {

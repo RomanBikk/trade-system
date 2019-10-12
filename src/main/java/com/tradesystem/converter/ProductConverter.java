@@ -17,6 +17,7 @@ public interface ProductConverter {
                 .map(p -> Product.builder()
                         .id(p.getId())
                         .name(p.getName())
+                        .description(p.getDescription())
                         .category(convertToCategory(p.getCategory()))
                         .build()
                 ).orElse(null);
@@ -27,6 +28,7 @@ public interface ProductConverter {
                 .map(p -> ProductEntity.builder()
                         .id(p.getId())
                         .name(p.getName())
+                        .description(p.getDescription())
                         .category(convertToCategoryEntity(p.getCategory()))
                         .build()
                 ).orElse(null);

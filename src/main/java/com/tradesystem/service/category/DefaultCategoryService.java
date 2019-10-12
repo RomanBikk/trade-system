@@ -1,27 +1,32 @@
 package com.tradesystem.service.category;
 
+import com.tradesystem.converter.CategoryConverter;
 import com.tradesystem.entity.CategoryEntity;
 import com.tradesystem.model.Category;
 import com.tradesystem.repository.hibernate.HibernateCrudRepository;
 import com.tradesystem.repository.category.CategoryRepository;
 
-public class DefaultCategoryService extends HibernateCrudRepository<CategoryEntity> implements CategoryService {
+import java.util.List;
+import java.util.stream.Collectors;
+
+public class DefaultCategoryService implements CategoryService {
     private final CategoryRepository categoryRepository;
     public DefaultCategoryService(CategoryRepository categoryRepository) {
         this.categoryRepository = categoryRepository;
     }
 
     @Override
-    public Category save(Category category) {
-        return convertToCategory(categoryRepository.save(convertToCategoryEntity(category)));
+    public List<Category> findAll() {
+
+        return categoryRepository.findAll().stream().map(CategoryConverter::convertToCategory).collect(Collectors.toList());
     }
 
-   private Category convertToCategory(CategoryEntity categoryEntityEntity) {
-        return Category.builder().id(categoryEntityEntity.getId()).name(categoryEntityEntity.getName()).build();
+    @Override
+    public Category save(Category category) {
+        return CategoryConverter.convertToCategory(categoryRepository.save(CategoryConverter.convertToCategoryEntity(category)));
     }
-    private CategoryEntity convertToCategoryEntity(Category category) {
-        return CategoryEntity.builder().id(category.getId()).name(category.getName()).build();
-    }
+
+
 
 
 }

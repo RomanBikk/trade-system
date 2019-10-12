@@ -1,11 +1,15 @@
 package com.tradesystem.service.product;
 
+import com.tradesystem.converter.ProductConverter;
 import com.tradesystem.entity.ProductEntity;
 import com.tradesystem.model.Product;
 import com.tradesystem.repository.product.ProductRepository;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
+
+import static com.tradesystem.converter.CategoryConverter.convertToCategory;
 
 public class DefaultProductService implements ProductService {
     private final ProductRepository productRepository;
@@ -17,18 +21,14 @@ public class DefaultProductService implements ProductService {
     @Override
     public List<Product> findAll() {
 
-        return productRepository.findAll().stream().map(this::convertToProduct).collect(Collectors.toList());
+        return productRepository.findAll().stream().map(ProductConverter::convertToProduct).collect(Collectors.toList());
     }
 
     @Override
     public Product save(Product product) {
-        return convertToProduct(productRepository.save(convertToProductEntity(product)));
+        return ProductConverter.convertToProduct(productRepository.save(ProductConverter.convertToProductEntity(product)));
     }
 
-    private Product convertToProduct(ProductEntity productEntity) {
-        return Product.builder().id(productEntity.getId()).name(productEntity.getName()).build();
-    }
-    private ProductEntity convertToProductEntity(Product product) {
-        return ProductEntity.builder().id(product.getId()).name(product.getName()).build();
-    }
+
+
 }

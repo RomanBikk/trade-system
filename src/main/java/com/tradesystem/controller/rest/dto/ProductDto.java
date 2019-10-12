@@ -15,5 +15,5 @@ public class ProductDto {
     public String name;
     public String description;
     public Long categoryId;
-    Category category;
+    public Category category;
 }

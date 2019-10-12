@@ -1,7 +1,6 @@
-package com.tradesystem.controller.web.servlet.controller.web.servlet;
+package com.tradesystem.controller.web.servlet;
 
-import com.tradesystem.controller.web.servlet.TradeSystemUrls;
-import com.tradesystem.entity.ProductEntity;
+import com.tradesystem.controller.web.TradeSystemUrls;
 import com.tradesystem.model.Product;
 import com.tradesystem.repository.product.ProductRepository;
 import com.tradesystem.service.product.ProductService;

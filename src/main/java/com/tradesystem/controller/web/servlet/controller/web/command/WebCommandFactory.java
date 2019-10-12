@@ -1,6 +1,6 @@
-package com.tradesystem.controller.web.servlet.controller.web.servlet;
+package com.tradesystem.controller.web.servlet.controller.web.command;
 
-import com.tradesystem.controller.web.servlet.command.common.WebCommand;
+import com.tradesystem.controller.web.command.common.WebCommand;
 import com.tradesystem.repository.hibernate.HibernateCategoryRepository;
 import com.tradesystem.repository.hibernate.HibernateProductRepository;
 import com.tradesystem.service.category.DefaultCategoryService;
@@ -25,7 +25,7 @@ public class WebCommandFactory {
     public static Map<String, WebCommand> getGetCommands() {
         Map<String, WebCommand> getWebCommands = new HashMap<>();
         getWebCommands.put(WebCommandName.PRODUCT,
-                new GetWebProductCommand(new DefaultProductService(new HibernateProductRepository()))
+                new GetWebProductCommand(new DefaultProductService(new HibernateProductRepository()),new DefaultCategoryService(new HibernateCategoryRepository() ))
         );
         getWebCommands.put(WebCommandName.CATEGORY,
                 new GetWebCategoryCommand(new DefaultCategoryService(new HibernateCategoryRepository()))

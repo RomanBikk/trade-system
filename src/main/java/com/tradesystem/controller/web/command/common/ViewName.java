@@ -1,4 +1,4 @@
-package com.tradesystem.controller.web.servlet.command.common;
+package com.tradesystem.controller.web.command.common;
 
 public interface ViewName {
     String PRODUCT = "product";

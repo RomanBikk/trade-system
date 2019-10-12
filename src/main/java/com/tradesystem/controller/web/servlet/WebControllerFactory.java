@@ -1,7 +1,6 @@
 package com.tradesystem.controller.web.servlet;
 
-import com.tradesystem.controller.web.servlet.controller.web.servlet.CategoryController;
-import com.tradesystem.controller.web.servlet.controller.web.servlet.ProductController;
+import com.tradesystem.controller.web.WebControllerName;
 import com.tradesystem.repository.hibernate.HibernateCategoryRepository;
 import com.tradesystem.repository.hibernate.HibernateProductRepository;
 import com.tradesystem.service.category.DefaultCategoryService;

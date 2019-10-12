@@ -1,10 +1,8 @@
-package com.tradesystem.controller.web.servlet.controller.web.servlet;
+package com.tradesystem.controller.web.servlet.controller.web.command;
 
-import com.tradesystem.controller.web.servlet.TradeSystemUrls;
-import com.tradesystem.controller.web.servlet.command.common.PostWebCommand;
-import com.tradesystem.controller.web.servlet.command.common.ViewName;
+import com.tradesystem.controller.web.command.common.PostWebCommand;
+import com.tradesystem.controller.web.command.common.ViewName;
 import com.tradesystem.model.Category;
-import com.tradesystem.model.Product;
 import com.tradesystem.service.category.CategoryService;
 
 import javax.servlet.RequestDispatcher;

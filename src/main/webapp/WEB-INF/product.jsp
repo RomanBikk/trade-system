@@ -7,6 +7,8 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <html>
 <head>
    <%@include file="header.jsp"%>
@@ -32,11 +34,12 @@ Product saving: <br><br>
 <form id ="product_save" method="post">
     Product name: <input type="text" name="name"><br><br>
     Description: <input type="text" name="description"><br><br>
-    <select name="category">
+    <select name="categoryId">
         <c:forEach items="${categories}" var="category">
             <option value="${category.id}">${category.name}</option>
         </c:forEach>
     </select>
+    <input type="submit"/>
 </form>
 
 </body>

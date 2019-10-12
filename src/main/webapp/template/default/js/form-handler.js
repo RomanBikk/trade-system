@@ -3,7 +3,6 @@ $(document).ready(function() {
             event.preventDefault();
             var formId = $(event.target).closest("form").attr("id");
             var resource = $(event.target).closest("form").attr("action");
-            //var dropDown = $(event.target).closest("forEach").attr("action");
             sendFormData(formId, resource);
         }
     );
@@ -13,15 +12,10 @@ function sendFormData(formId, resource) {
     $.ajax({
         url:     resource,
         type:     "POST",
-        dataType: "json",
+        dataType: "html",
         data: $("#" + formId).serialize(),
         success: function(response) {
-            var $select = $("#categories");
-            $select.find("option").remove();
-            $.each(response, function(index, category) {
-                $("<option>").val(category.id).text(category.name).appendTo($select);
-            });
-            //document.body.innerHTML = response;
+            document.body.innerHTML = response;
         },
         error: function(response) {
             console.log("The error has occurred during sending form data")
