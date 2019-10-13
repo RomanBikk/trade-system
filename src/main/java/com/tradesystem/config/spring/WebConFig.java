@@ -30,3 +30,5 @@ public class WebConFig extends WebMvcConfigurerAdapter {
         return freeMarkerConfigurer;
     }
 }
+
+

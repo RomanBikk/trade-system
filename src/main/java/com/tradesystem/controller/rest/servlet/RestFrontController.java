@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet(urlPatterns = "/rest/*")
+//@WebServlet(urlPatterns = "/rest/*")
 public class RestFrontController extends HttpServlet {
     RestProductController productController = new RestProductController(new DefaultProductService(new HibernateProductRepository()));
 
