@@ -1,5 +1,5 @@
 package com.tradesystem.config.spring;
-
+/*
 import lombok.val;
 import org.springframework.web.WebApplicationInitializer;
 import org.springframework.web.context.support.AnnotationConfigWebApplicationContext;
@@ -20,5 +20,7 @@ public class WebAppInit implements WebApplicationInitializer {
         dispatcher.addMapping("/");
     }
 }
+
+ */
 
 

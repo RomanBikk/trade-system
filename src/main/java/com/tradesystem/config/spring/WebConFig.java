@@ -1,5 +1,5 @@
 package com.tradesystem.config.spring;
-
+/*
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -30,5 +30,7 @@ public class WebConFig extends WebMvcConfigurerAdapter {
         return freeMarkerConfigurer;
     }
 }
+
+ */
 
 

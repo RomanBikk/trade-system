@@ -35,26 +35,24 @@ import java.util.List;
 public class WebSpringProductController {
 
     private final Logger logger = LoggerFactory.getLogger(WebSpringProductController.class);
-
+    private ProductService productService;
 
     @RequestMapping(method = RequestMethod.GET)
-    public ModelAndView main(@ModelAttribute("product") Product product) {
-        ModelAndView modelAndView = new ModelAndView();
-        modelAndView.addObject("product", new Product());
-        modelAndView.setViewName("product");
-        return modelAndView;
+    public String ListProducts(ModelMap model)
+    {
+        List<Product> list= productService.findAll();
+        model.addAttribute("products", list);
+        return "product";
     }
 
 
-    /*@RequestMapping(method = RequestMethod.POST)
-    public String save(@ModelAttribute("userForm") @Validated Product product,BindingResult result, Model model,
-                       final RedirectAttributes redirectAttributes) {
-        logger.debug("save() : {}", product);
-            productService.save(product);
-            return "redirect:/users/" + product.getId();
+    @RequestMapping(method = RequestMethod.POST)
+    public String saveProduct(@ModelAttribute("product") Product product) {
+        productService.save(product);
+
+        return "redirect:/product";
     }
 
-     */
 }
 
 
