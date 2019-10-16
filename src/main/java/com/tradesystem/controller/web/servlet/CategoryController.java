@@ -20,7 +20,7 @@ public class CategoryController {
 
     public void save(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String  name = req.getParameter("name");
-       categoryService.save(Category.builder().name(name).build());
+        categoryService.save(Category.builder().name(name).build());
         req.setAttribute("categories",categoryService.findAll());
         RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/product.jsp");
         dispatcher.forward(req,resp);

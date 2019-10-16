@@ -8,10 +8,9 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>Hello World</title>
 </head>
 <body>
-Hello, ${sessionScope.name} (session scope)
-Hello, ${requestScope.name} (request scope)
+<h2>${message}</h2>
 </body>
 </html>

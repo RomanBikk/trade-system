@@ -1,5 +1,5 @@
 package com.tradesystem.config.spring;
-/*
+
 import com.tradesystem.service.TestBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -32,6 +32,6 @@ public class SpringConfig {
     }
 }
 
- */
+
 
 

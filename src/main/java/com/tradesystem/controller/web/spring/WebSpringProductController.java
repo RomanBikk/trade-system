@@ -1,6 +1,9 @@
 package com.tradesystem.controller.web.spring;
 
+import com.tradesystem.controller.rest.dto.ProductDto;
+import com.tradesystem.converter.ProductConverter;
 import com.tradesystem.model.Product;
+import com.tradesystem.repository.hibernate.HibernateProductRepository;
 import com.tradesystem.repository.product.ProductRepository;
 import com.tradesystem.repository.spring.SpringCrudRepository;
 import com.tradesystem.service.product.DefaultProductService;
@@ -31,39 +34,36 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 
-@Controller
-@RequestMapping("/product")
-public class WebSpringProductController extends AbstractController  {
+@RequestMapping("web/v2/product")
+public class WebSpringProductController {
 
-    private final Logger logger = LoggerFactory.getLogger(WebSpringProductController.class);
+   private ProductService productService;
 
-   private SpringCrudRepository springCrudRepository;
-
-    @Override
-    protected ModelAndView handleRequestInternal(HttpServletRequest request, HttpServletResponse response) throws Exception {
-        ModelAndView model = new ModelAndView("product");
-        model.addObject("products", springCrudRepository.findAll());
-        return model;
+    public WebSpringProductController(ProductService springCrudRepository) {
+        this.productService = springCrudRepository;
     }
 
 
-    @RequestMapping(method = RequestMethod.GET)
-    public String ListProducts(ModelMap model)
+    @GetMapping
+    public String findAll(ModelMap model)
     {
-        List<Product> list= (List<Product>) springCrudRepository.findAll();
-        model.addAttribute("products", list);
+        List<ProductDto> list= productService.findAll().stream()
+                .map(ProductConverter::convertToProductDto)
+                .collect(Collectors.toList());
+                model.addAttribute("products", list);
         return "product";
     }
 
-
-    @RequestMapping(method = RequestMethod.POST)
-    public String saveProduct(@ModelAttribute("product") Product product) {
-        springCrudRepository.save(product);
-
-        return "redirect:/product";
+    @PostMapping
+    public String save(@ModelAttribute("product") ProductDto product, Model model) {
+        Product product1 = productService.save(ProductConverter.convertToProduct(product));
+        model.addAttribute("product",product1);
+        return "redirect:product";
     }
 
 

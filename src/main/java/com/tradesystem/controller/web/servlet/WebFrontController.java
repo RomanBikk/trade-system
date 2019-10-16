@@ -14,7 +14,7 @@ import java.util.Map;
 import static com.tradesystem.controller.web.servlet.controller.web.command.WebCommandFactory.getGetCommands;
 import static com.tradesystem.controller.web.servlet.controller.web.command.WebCommandFactory.getPostCommands;
 
-//@WebServlet(urlPatterns = "/"+ TradeSystemUrls.BASE + "/*")
+@WebServlet(urlPatterns = "/"+ TradeSystemUrls.BASE + "/v1/*")
 public class WebFrontController extends HttpServlet {
    private final static Map<String, WebCommand> postWebCommands = getPostCommands();
     private final static Map<String, WebCommand> getWebCommands = getGetCommands();
